@@ -19,6 +19,7 @@
 
 .login-title {
   font-size: 24px;
+  line-height: 30px;
   margin-bottom: 60px;
   text-align: center;
 }
@@ -35,4 +36,6 @@
 
 .login-button {
   align-self: center;
+  border: 1px solid grey;
+  padding: 10px 15px;
 }
