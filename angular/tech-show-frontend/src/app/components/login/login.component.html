@@ -1,0 +1,12 @@
+<div class="login-container">
+  <form class="login-form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <h1 class="login-title">Login</h1>
+    <label htmlFor="email" class="login-input-title">Email</label>
+    <input id="email" type="email" class="login-input" formControlName="email"/>
+    <span class="input-error" [style.visibility]="email.invalid ? 'visible' : 'hidden'">El campo debe contener un email válido</span>
+    <label title="password" class="login-input-title">Password</label>
+    <input id="password" type="password" class="login-input" formControlName="password" />
+    <span class="input-error" [style.visibility]="password.invalid ? 'visible' : 'hidden'">La contraseña debe tener al menos 6 caractéres</span>
+    <button type="submit" class="login-button" [disabled]="!loginForm.valid">Login</button>
+  </form>
+</div>
