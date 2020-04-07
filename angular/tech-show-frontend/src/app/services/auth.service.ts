@@ -16,7 +16,7 @@ export class AuthService {
   }
 
   getToken() {
-    return localStorage.getAuthToken();
+    return localStorage.authToken;
   }
 
   setToken(token) {
