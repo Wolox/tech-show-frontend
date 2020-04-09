@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import { login } from '../../services/AuthService';
 
@@ -42,9 +43,10 @@ class Login extends Component {
         {this.state.passwordError && (
           <span className={styles.errorLabel}>El campo de password es inválido</span>
         )}
-        <button type="submit" disabled={this.state.passwordError || this.state.emailError}>
+        {/* <button type="submit" disabled={this.state.passwordError || this.state.emailError}>
           Submit
-        </button>
+        </button> */}
+        <Link to="/books">Ir a books</Link>
       </form>
     );
   }

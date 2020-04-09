@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { AppContainer } from 'react-hot-loader';
 
-import App from './App';
+import App from './components/Routes/App';
 import './scss/application.scss';
-import { register } from './serviceWorker';
 
 const render = () => {
   ReactDOM.render(
-    <AppContainer>
-      <App />
-    </AppContainer>,
+    <Router>
+      <AppContainer>
+        <App />
+      </AppContainer>
+    </Router>,
     document.getElementById('root')
   );
 };
@@ -18,11 +20,9 @@ const render = () => {
 // Render once
 render();
 
-register();
-
 // Webpack Hot Module Replacement API
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    render();
-  });
-}
+// if (module.hot) {
+//   module.hot.accept('./App', () => {
+//     render();
+//   });
+// }
