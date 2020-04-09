@@ -9,9 +9,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { AuthService } from './services/auth.service';
+import { BooksListComponent } from './screens/books-list/books-list.component';
+import { BookComponent } from './components/book/book.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, BooksListComponent, BookComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

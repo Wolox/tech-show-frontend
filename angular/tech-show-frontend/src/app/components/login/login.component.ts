@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "src/app/services/auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "login",
@@ -10,7 +11,7 @@ import { AuthService } from "src/app/services/auth.service";
 export class LoginComponent {
   title = "Login";
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   loginForm = new FormGroup({
     email: new FormControl("", [
@@ -34,7 +35,8 @@ export class LoginComponent {
     this.authService.login(this.loginForm.value).subscribe(
       response => {
         this.authService.setToken(response.body.token);
-        alert("Logged in!!");
+        // alert("Logged in!!");
+        this.router.navigate(['books'])
       },
       error => {
         console.log(error);
