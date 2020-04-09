@@ -1,0 +1,13 @@
+@import '~wolox-equalizer/equalizer';
+@import './colors';
+@import './buttons';
+
+body {
+  background-color: #F5F5F5;
+}
+
+a.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

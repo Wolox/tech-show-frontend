@@ -29,6 +29,7 @@ export default {
     login () {
       login(this.email, this.password).then(response => {
         localStorage.setItem('authToken', response.data.token)
+        this.$router.push({ path: '/books' })
       })
     }
   }

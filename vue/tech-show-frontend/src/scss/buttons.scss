@@ -1,0 +1,15 @@
+.button {
+  border-radius: 6px;
+  height: 40px;
+  outline: none;
+  width: 100%;
+
+  &.primary {
+    background-color: $green;
+    color: white;
+  }
+  &.secondary {
+    color: $green;
+    border: 2px solid $green;
+  }
+}
