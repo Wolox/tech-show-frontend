@@ -1,33 +1,36 @@
 <template lang="pug">
   .book-list-container
-    input.book-filter-input(type="text" v-model="filter")
+    input.book-filter-input(type="text" @input="changeFilter" :value="filter")
     .book-list
       book(v-for="book in filteredBooks" :key="book.id" :book="book")
 </template>
 
 <script>
-import { getBooks } from '@/service/BookService'
 import Book from '@/components/Book'
+import { mapActions, mapState, mapGetters } from 'vuex'
 
 export default {
   name: 'BookList',
   components: {
     Book
   },
-  data () {
-    return {
-      books: [],
-      filter: ''
-    }
+  methods: {
+    ...mapActions({
+      getBooks: 'books/getBooks',
+      changeFilter: 'books/changeFilter'
+    })
   },
   computed: {
-    filteredBooks () {
-      return this.books.filter(book => book.title.toLowerCase().includes(this.filter.toLowerCase()))
-    }
+    ...mapState({
+      books: state => state.books.books,
+      filter: state => state.books.filter
+    }),
+    ...mapGetters({
+      filteredBooks: 'books/filteredBooks'
+    })
   },
-  async mounted () {
-    const response = await getBooks()
-    this.books = response.data
+  mounted () {
+    this.getBooks()
   }
 }
 </script>

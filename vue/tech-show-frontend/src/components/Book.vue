@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 .book-container {
-  align-items: start;
+  align-items: flex-start;
   background-color: white;
   box-shadow: 3px 4px 5px 0px rgba(100, 100, 100, 0.8);
   display: flex;
