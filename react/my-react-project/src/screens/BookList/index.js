@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { getBooks } from '../../services/BooksService';
 
 import styles from './styles.module.scss';
+import Book from './components/Book';
 
 function BookList() {
-  const [books, setBooks] = useState([]);
+  const dispatch = useDispatch();
+  const books = useSelector(state => state.books);
   useEffect(() => {
     getBooks().then(response => {
-      setBooks(response.data);
+      dispatch({ type: 'GET_BOOKS', payload: response.data });
     });
-  }, []);
+  }, [dispatch]);
 
   return (
-    <div className={styles.container}>
-      {books.map(book => (
-        <div className={styles.bookContainer} key={book.id}>
-          <img src={book.img} alt={book.title} />
-          <h4 className={styles.bookTitle}>{book.title}</h4>
-          <h6 className={styles.author}>{book.author}</h6>
-        </div>
-      ))}
+    <div className={styles.bookListContainer}>
+      <input className={styles.bookFilterInput} type="text" placeholder="Buscá el un libro por título" />
+      <div className={styles.bookList}>
+        {books.map(book => (
+          <Book book={book} key={book.id} />
+        ))}
+      </div>
     </div>
   );
 }

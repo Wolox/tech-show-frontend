@@ -1,0 +1,25 @@
+.book-container {
+  align-items: start;
+  background-color: white;
+  box-shadow: 3px 4px 5px 0px rgba(100, 100, 100, 0.8);
+  display: flex;
+  flex-direction: column;
+  height: 315px;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+}
+
+.book-image {
+  height: 75%;
+  margin-bottom: 20px;
+  object-fit: contain;
+  object-position: top;
+  width: 100%;
+}
+
+.book-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: start;
+}
