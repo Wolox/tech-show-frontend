@@ -11,6 +11,9 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
 import { BooksListComponent } from './screens/books-list/books-list.component';
 import { BookComponent } from './components/book/book.component';
+import { StoreModule } from '@ngrx/store';
+import { booksReducer } from './store/books.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, BooksListComponent, BookComponent],
@@ -18,7 +21,9 @@ import { BookComponent } from './components/book/book.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot({ books: booksReducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
